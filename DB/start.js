@@ -1,5 +1,8 @@
 import { open } from 'node:fs/promises';
-
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+    
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // create object
 const VedioList = {
@@ -13,13 +16,13 @@ const vedioNo1 = {
     length: 230
 }
 
-VedioList.data.push(vedioNo1);
+// VedioList.data.push(vedioNo1);
 
 const data_to_submit = JSON.stringify(VedioList);
 
 //write file to disk
-
-const fileHandle = await open("./vedioDB.json", "w");
+``
+const fileHandle = await open(__dirname + "vedioDB.json", "w");
 try {
     await fileHandle.writeFile(data_to_submit,"utf8");
 
